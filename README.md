@@ -1,1 +1,1 @@
-Giới thiệu về library
+Giới thiệu về library Management System.
