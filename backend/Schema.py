@@ -21,13 +21,13 @@ class Librarian(BaseModel):
     Gender: str
     DateOfBirth: Optional[date] = None
     Address: str
-    reportTo: Optional[int] = None
+    reportTo: Optional[str] = None
     CIC: str
     Account: str
     Password: str
 
 class Reader(BaseModel):
-    LibrarianID: int
+    LibrarianID: str
     Address: str
     Phone: str = Field(..., max_length=30)
     Name: str
@@ -38,28 +38,30 @@ class Reader(BaseModel):
     Password: str
 
 class OrderRequest(BaseModel):
-    DocID: int
-    Address: str
-    BorrowDay: int
-    Note: Optional[str] = None
+    DocID: str                  # ✅ Mã tài liệu
+    Address: str                # ✅ Địa chỉ nhận
+    BorrowDay: int             # ✅ Số ngày mượn (CHECK > 0)
+    Note: Optional[str] = None # ✅ Ghi chú (tùy chọn)
+    ApplyBy: str               # ✅ Mã thủ thư (phải tồn tại trong bảng librarians)
+
 
 class DeleteDocumentRequest(BaseModel):
-    DocID: int
+    DocID: str
 
 # 📦 Dữ liệu đầu vào
 class DeleteLibrarianRequest(BaseModel):
-    LibrarianID: int
+    LibrarianID: str
 
 class DeleteReaderRequest(BaseModel):
-    ReaderID: int
+    ReaderID: str
 
 class DeleteOrderRequest(BaseModel):
     RequestDate: str  # Định dạng: 'YYYY-MM-DD' hoặc 'YYYY-MM-DD HH:MM:SS'
-    OrderBy: int
-    DocID: int
+    OrderBy: str
+    DocID: str
 
 class DocumentUpdate(BaseModel):
-    DocID: int
+    DocID: str
     ISBN: str
     Quantity: int
     Price: float
@@ -73,19 +75,19 @@ class DocumentUpdate(BaseModel):
     Rank: int
 
 class LibrarianUpdate(BaseModel):
-    LibrarianID: int
+    LibrarianID: str
     phone: str
     baseSalary: int
     Full_name: str
     Gender: str
     DateOfBirth: str # YYYY-MM-DD
     Address: str
-    reportTo: int
+    reportTo: str
     CIC: str
 
 class ReaderUpdate(BaseModel):
-    ReaderID: int
-    LibrarianID: int
+    ReaderID: str
+    LibrarianID: str
     Address: str
     Phone: str
     Name: str
@@ -97,9 +99,9 @@ class ReaderUpdate(BaseModel):
 
 class OrderUpdate(BaseModel):
     RequestDate: str  # YYYY-MM-DD HH:MM:SS
-    DocID: int
-    OrderBy: int
-    ApplyBy: int
+    DocID: str
+    OrderBy: str
+    ApplyBy: str
     BorrowDay: int
     ApprovedDate: str
     ReceivedDate: str

@@ -16,9 +16,9 @@ app.add_middleware(
 
 connection = pymysql.connect(
         host='127.0.0.1',
-        port=3307,
+        port=3306,
         user='root',
-        password='strong_password',
+        password='0855566027',
         database='libmanagement',
     )
 
@@ -35,7 +35,7 @@ def get_documents():
         raise HTTPException(status_code=500, detail=f"Lỗi truy vấn: {str(e)}")
 
 @app.get("/api/get-document")
-def get_document_by_id(DocID: int = Query(..., description="ID của tài liệu cần lấy")):
+def get_document_by_id(DocID: str = Query(..., description="ID của tài liệu cần lấy")):
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
             cursor.execute("SELECT * FROM documents WHERE DocID = %s", (DocID,))
@@ -101,7 +101,7 @@ def get_orders(acc: str = Query(..., description="Tài khoản thủ thư"),
 def get_orders_by_orderby(
     acc: str = Query(..., description="Tài khoản đăng nhập"),
     pwd: str = Query(..., description="Mật khẩu đăng nhập"),
-    ReaderID: Optional[int] = Query(None, description="ID của người đặt đơn (nếu có)")
+    ReaderID: Optional[str] = Query(None, description="ID của người đặt đơn (nếu có)")
 ):
     # Nếu ReaderID được nhập → kiểm tra thủ thư
     if ReaderID is not None:
@@ -143,7 +143,7 @@ def get_all_readers(
 def get_reader(
     acc: str = Query(..., description="Tài khoản đăng nhập"),
     pwd: str = Query(..., description="Mật khẩu đăng nhập"),
-    ReaderID: Optional[int] = Query(None, description="ID của người đọc (nếu có)")
+    ReaderID: Optional[str] = Query(None, description="ID của người đọc (nếu có)")
 ):
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
@@ -289,7 +289,7 @@ def add_order(acc: str = Query(...), pwd: str = Query(...), order: OrderRequest 
         'Unpaid',           # PaymentStatus
         order.Note,         # Note
         order.Address,      # Address
-        1,                  # ApplyBy
+        order.ApplyBy,      # ApplyBy
         order.DocID,        # DocID
         reader_id           # OrderID
     )
