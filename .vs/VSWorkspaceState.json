@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\backend",
+    "\\backend\\.idea"
   ],
-  "SelectedNode": "\\C:\\Thuan\\Codes\\GitRepo\\Library_manament",
+  "SelectedNode": "\\backend\\backend.py",
   "PreviewInSolutionExplorer": false
 }

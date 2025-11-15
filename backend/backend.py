@@ -1,6 +1,7 @@
 import pymysql
 import uvicorn
 from Schema import *
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, HTTPException, Query , Body, Request
 from typing import Optional
 
@@ -8,35 +9,26 @@ app = FastAPI()
 
 connection = pymysql.connect(
         host='127.0.0.1',
-        port=3307,
+        port=3306,
         user='root',
-        password='strong_password',
+        password='0855566027',
         database='libmanagement',
     )
 
-import pymysql
-import uvicorn
-from fastapi.middleware.cors import CORSMiddleware
-from Schema import *
-from fastapi import FastAPI, HTTPException, Query , Body, Request
-from typing import Optional
+# # List of allowed origins
+# origins = [
+# "http://localhost",
+# "http://localhost:6060",
+# ]
 
-app = FastAPI()
-
-# List of allowed origins
-origins = [
-"http://localhost",
-"http://localhost:6060",
-]
-
-# Adding CORS middleware to the FastAPI application
-app.add_middleware(
-CORSMiddleware,
-allow_origins=origins, # List of allowed origins
-allow_credentials=True, # Allow credentials (cookies, authorization headers, etc.)
-allow_methods=["*"], # Allow all HTTP methods
-allow_headers=["*"], # Allow all HTTP headers
-)
+# # Adding CORS middleware to the FastAPI application
+# app.add_middleware(
+# CORSMiddleware,
+# allow_origins=origins, # List of allowed origins
+# allow_credentials=True, # Allow credentials (cookies, authorization headers, etc.)
+# allow_methods=["*"], # Allow all HTTP methods
+# allow_headers=["*"], # Allow all HTTP headers
+# )
 
 # Api: get documents no auth
 @app.get("/api/get-documents/")
@@ -99,6 +91,21 @@ def get_librarian(acc: str = Query(..., description="Tài khoản đăng nhập"
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Lỗi truy vấn: {str(e)}")
 
+@app.get("/api/librarians")
+def get_librarians(acc: str = Query(...), pwd: str = Query(...)):
+    # Xác thực tài khoản thủ thư
+    if not auth(acc, pwd):
+        raise HTTPException(status_code=401, detail="Tài khoản thủ thư không hợp lệ")
+
+    try:
+        with connection.cursor(pymysql.cursors.DictCursor) as cursor:
+            cursor.execute("SELECT LibrarianID, Full_name FROM librarians")
+            results = cursor.fetchall()
+        return results
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Lỗi truy vấn thủ thư: {str(e)}")
+
+
 @app.get("/api/orders")
 def get_orders(acc: str = Query(..., description="Tài khoản thủ thư"),
                pwd: str = Query(..., description="Mật khẩu thủ thư")):
@@ -138,6 +145,28 @@ def get_orders_by_orderby(
         return results
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Lỗi truy vấn đơn hàng: {str(e)}")
+
+@app.get("/api/order/details")
+def get_order_details(
+    acc: str = Query(...),
+    pwd: str = Query(...),
+    ReaderID: str = Query(...),
+    DocID: str = Query(...)
+):
+    if not auth(acc, pwd):
+        raise HTTPException(status_code=401, detail="Tài khoản không hợp lệ")
+
+    try:
+        with connection.cursor(pymysql.cursors.DictCursor) as cursor:
+            sql = "SELECT * FROM orders WHERE OrderBy = %s AND DocID = %s"
+            cursor.execute(sql, (ReaderID, DocID))
+            result = cursor.fetchone()
+        if not result:
+            raise HTTPException(status_code=404, detail="Không tìm thấy đơn hàng")
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Lỗi truy vấn chi tiết đơn hàng: {str(e)}")
+
 
 @app.get("/api/readers")
 def get_all_readers(
