@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -33,10 +33,6 @@
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": ".gitignore",
@@ -44,7 +40,7 @@
               "RelativeDocumentMoniker": "backend\\.idea\\.gitignore",
               "ToolTip": "C:\\Thuan\\Codes\\GitRepo\\Library_manament\\backend\\.idea\\.gitignore",
               "RelativeToolTip": "backend\\.idea\\.gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-11-14T05:48:03.925Z",
               "EditorCaption": ""
@@ -70,7 +66,7 @@
               "RelativeDocumentMoniker": "backend\\backend.py",
               "ToolTip": "C:\\Thuan\\Codes\\GitRepo\\Library_manament\\backend\\backend.py",
               "RelativeToolTip": "backend\\backend.py",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAWwKMAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAWwJ0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-11-14T05:47:41.607Z",
               "EditorCaption": ""

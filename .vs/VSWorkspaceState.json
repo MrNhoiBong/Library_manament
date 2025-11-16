@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\backend",
-    "\\backend\\.idea"
+    "\\database"
   ],
-  "SelectedNode": "\\backend\\Schema.py",
+  "SelectedNode": "\\backend\\backend.py",
   "PreviewInSolutionExplorer": false
 }
