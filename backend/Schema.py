@@ -43,6 +43,20 @@ class OrderRequest(BaseModel):
     BorrowDay: int             # ✅ Số ngày mượn (CHECK > 0)
     Note: Optional[str] = None # ✅ Ghi chú (tùy chọn)
 
+class MemberCard(BaseModel):
+    CardID: str
+    IssueBy: str
+    Rank: str
+    IssueDate: Optional[str] = None # Định dạng: 'YYYY-MM-DD'
+    EndDate: Optional[str] = None  # Định dạng: 'YYYY-MM-DD'
+
+#Add
+class AddMemberCard(BaseModel):
+    CardID: str
+    IssueBy: str
+    Rank: str
+
+# Delete
 class DeleteDocumentRequest(BaseModel):
     DocID: str
 
@@ -58,6 +72,10 @@ class DeleteOrderRequest(BaseModel):
     OrderBy: str
     DocID: str
 
+class DeleteMemberCardRequest(BaseModel):
+    CardID: str
+
+# Update
 class DocumentUpdate(BaseModel):
     DocID: str
     ISBN: str
@@ -109,3 +127,8 @@ class OrderUpdate(BaseModel):
     PaymentStatus: str
     Note: str
     Address: str
+
+class MemberCardUpdate(BaseModel):
+    CardID: str
+    Rank: Optional[str] = None
+    IssueBy: Optional[str] = None

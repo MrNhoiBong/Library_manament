@@ -209,6 +209,56 @@ def get_reader(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Lỗi truy vấn dữ liệu reader: {str(e)}")
 
+@app.get("/api/membercards")
+def get_all_membercards(
+    acc: str = Query(..., description="Tài khoản thủ thư"),
+    pwd: str = Query(..., description="Mật khẩu thủ thư")
+):
+    # Kiểm tra đăng nhập
+    if not auth(acc, pwd):
+        raise HTTPException(status_code=401, detail="Tài khoản hoặc mật khẩu không hợp lệ")
+
+    try:
+        with connection.cursor(pymysql.cursors.DictCursor) as cursor:
+            cursor.execute("""
+                SELECT * FROM issue_membercard
+            """)
+            results = cursor.fetchall()
+        return results
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Lỗi truy vấn dữ liệu membercards: {str(e)}")
+
+@app.get("/api/membercardByCardID")
+def get_membercard(
+    acc: str = Query(..., description="Tài khoản đăng nhập"),
+    pwd: str = Query(..., description="Mật khẩu đăng nhập"),
+    CardID: Optional[str] = Query(None, description="ID thẻ (ReaderID)")
+):
+    try:
+        with connection.cursor(pymysql.cursors.DictCursor) as cursor:
+            if CardID is not None:
+                # Truy cập bởi thủ thư → xác thực
+                if not auth(acc, pwd):
+                    raise HTTPException(status_code=401, detail="Tài khoản thủ thư không hợp lệ")
+                cursor.execute("SELECT * FROM issue_membercard WHERE CardID = %s", (CardID,))
+            else:
+                # Truy cập bởi người đọc → kiểm tra tài khoản
+                cursor.execute("""
+                    SELECT *
+                    FROM issue_membercard
+                    WHERE CardID = (
+                        SELECT ReaderID FROM readers WHERE Account = %s AND Password = %s
+                    )
+                """, (acc, pwd))
+
+            result = cursor.fetchone()
+            if not result:
+                raise HTTPException(status_code=404, detail="Không tìm thấy thông tin thẻ hoặc chưa đăng ký thẻ")
+            return result
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Lỗi truy vấn dữ liệu membercard: {str(e)}")
+
 # Api add
 @app.post("/api/add-doc")
 def add_document(
@@ -346,6 +396,32 @@ def add_order(acc: str = Query(...), pwd: str = Query(...), order: OrderRequest 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Lỗi hệ thống: {str(e)}")
 
+@app.post("/api/add-membercard")
+def add_membercard(
+    acc: str = Query(..., description="Tài khoản thủ thư"),
+    pwd: str = Query(..., description="Mật khẩu thủ thư"),
+    card: AddMemberCard = Body(..., description="Thông tin thẻ thành viên cần thêm")
+):
+    # Xác thực tài khoản thủ thư
+    if not auth(acc, pwd):
+        raise HTTPException(status_code=401, detail="Tài khoản thủ thư không hợp lệ")
+
+    try:
+        with connection.cursor() as cursor:
+            sql = """
+                INSERT INTO issue_membercard (CardID, IssueBy, `Rank`)
+                VALUES (%s, %s, %s)
+            """
+            cursor.execute(sql, (
+                card.CardID,
+                card.IssueBy,
+                card.Rank,
+            ))
+            connection.commit()
+        return {"message": "Thêm thẻ thành viên thành công"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Lỗi thêm thẻ thành viên: {str(e)}")
+
 @app.post("/api/delete-document")
 async def delete_document(
     body: DeleteDocumentRequest,
@@ -414,6 +490,28 @@ async def delete_order(
         "message": f"Đã xóa đơn đặt tài liệu với DocID = {body.DocID}, OrderBy = {body.OrderBy}, RequestDate = {body.RequestDate}"
     }
 
+@app.post("/api/delete-membercard")
+async def delete_membercard(
+    body: DeleteMemberCardRequest,
+    acc: str = Query(..., description="Tài khoản thủ thư"),
+    pwd: str = Query(..., description="Mật khẩu thủ thư")
+):
+    # Kiểm tra thông tin xác thực
+    if not acc or not pwd:
+        raise HTTPException(status_code=400, detail="Thiếu thông tin xác thực")
+
+    if not auth(acc, pwd):
+        raise HTTPException(status_code=403, detail="Không có quyền thủ thư")
+
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("DELETE FROM issue_membercard WHERE CardID = %s", (body.CardID,))
+            connection.commit()
+        return {"message": f"Đã xóa thẻ thành viên có CardID = {body.CardID}"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Lỗi xóa thẻ thành viên: {str(e)}")
+
+# Api update
 @app.put("/api/update-document")
 async def update_document(
     doc: DocumentUpdate,
@@ -562,6 +660,39 @@ def update_order(
         connection.commit()
 
     return {"message": "Cập nhật đơn hàng thành công"}
+
+@app.put("/api/update-membercard")
+async def update_membercard(
+    card: MemberCardUpdate,
+    acc: str = Query(...),
+    pwd: str = Query(...)
+):
+    if not auth(acc, pwd):
+        raise HTTPException(status_code=401, detail="Tài khoản hoặc mật khẩu không hợp lệ")
+
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT * FROM issue_membercard WHERE CardID = %s", (card.CardID,))
+        existing = cursor.fetchone()
+        if not existing:
+            raise HTTPException(status_code=404, detail="Không tồn tại thẻ để cập nhật")
+
+        fields = []
+        values = []
+        for key, value in card.dict().items():
+            if key != "CardID" and value is not None:
+                fields.append(f"`{key}` = %s")
+                values.append(value)
+
+        if not fields:
+            raise HTTPException(status_code=400, detail="Không có dữ liệu nào để cập nhật")
+
+        update_query = f"UPDATE issue_membercard SET {', '.join(fields)} WHERE CardID = %s"
+        values.append(card.CardID)
+        cursor.execute(update_query, tuple(values))
+        connection.commit()
+
+    connection.close()
+    return {"message": "Cập nhật thẻ thành viên thành công"}
 
 if __name__ == '__main__':
     uvicorn.run(
