@@ -1,0 +1,209 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Thuan\\UbuntuDocker\\hello-world\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Librarian\\LibrarianPage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Librarian\\LibrarianPage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Home\\HomePage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Home\\HomePage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Login\\LoginPage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Login\\LoginPage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Librarian\\LibrarianPage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Librarian\\LibrarianPage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Home\\HomePage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Home\\HomePage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Components\\UpdateSection.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Components\\UpdateSection.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Components\\AddSection.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Components\\AddSection.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Components\\DeleteSection.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Components\\DeleteSection.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Components\\GetSection.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Components\\GetSection.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Thuan\\UbuntuDocker\\hello-world\\src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Thuan\\UbuntuDocker\\hello-world\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 182,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GetSection.jsx",
+              "DocumentMoniker": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Components\\GetSection.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Components\\GetSection.jsx",
+              "ToolTip": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Components\\GetSection.jsx",
+              "RelativeToolTip": "src\\pages\\Components\\GetSection.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-12T09:36:46.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginPage.jsx",
+              "DocumentMoniker": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Login\\LoginPage.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Login\\LoginPage.jsx",
+              "ToolTip": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Login\\LoginPage.jsx",
+              "RelativeToolTip": "src\\pages\\Login\\LoginPage.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-16T12:38:33.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomePage.css",
+              "DocumentMoniker": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Home\\HomePage.css",
+              "RelativeDocumentMoniker": "src\\pages\\Home\\HomePage.css",
+              "ToolTip": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Home\\HomePage.css",
+              "RelativeToolTip": "src\\pages\\Home\\HomePage.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-16T12:38:19.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomePage.jsx",
+              "DocumentMoniker": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Home\\HomePage.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Home\\HomePage.jsx",
+              "ToolTip": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Home\\HomePage.jsx",
+              "RelativeToolTip": "src\\pages\\Home\\HomePage.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-15T11:38:06.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LibrarianPage.css",
+              "DocumentMoniker": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Librarian\\LibrarianPage.css",
+              "RelativeDocumentMoniker": "src\\pages\\Librarian\\LibrarianPage.css",
+              "ToolTip": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Librarian\\LibrarianPage.css",
+              "RelativeToolTip": "src\\pages\\Librarian\\LibrarianPage.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-14T03:58:10.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UpdateSection.jsx",
+              "DocumentMoniker": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Components\\UpdateSection.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Components\\UpdateSection.jsx",
+              "ToolTip": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Components\\UpdateSection.jsx",
+              "RelativeToolTip": "src\\pages\\Components\\UpdateSection.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-12T09:38:09.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DeleteSection.jsx",
+              "DocumentMoniker": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Components\\DeleteSection.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Components\\DeleteSection.jsx",
+              "ToolTip": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Components\\DeleteSection.jsx",
+              "RelativeToolTip": "src\\pages\\Components\\DeleteSection.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-12T09:37:50.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddSection.jsx",
+              "DocumentMoniker": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Components\\AddSection.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Components\\AddSection.jsx",
+              "ToolTip": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Components\\AddSection.jsx",
+              "RelativeToolTip": "src\\pages\\Components\\AddSection.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-12T09:37:24.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LibrarianPage.jsx",
+              "DocumentMoniker": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Librarian\\LibrarianPage.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Librarian\\LibrarianPage.jsx",
+              "ToolTip": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\pages\\Librarian\\LibrarianPage.jsx",
+              "RelativeToolTip": "src\\pages\\Librarian\\LibrarianPage.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-12T05:47:17.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "App.jsx",
+              "DocumentMoniker": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\App.jsx",
+              "RelativeDocumentMoniker": "src\\App.jsx",
+              "ToolTip": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\App.jsx",
+              "RelativeToolTip": "src\\App.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-12T05:38:35.556Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "main.jsx",
+              "DocumentMoniker": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\main.jsx",
+              "RelativeDocumentMoniker": "src\\main.jsx",
+              "ToolTip": "C:\\Thuan\\UbuntuDocker\\hello-world\\src\\main.jsx",
+              "RelativeToolTip": "src\\main.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-12T05:31:05.428Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

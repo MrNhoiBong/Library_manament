@@ -58,6 +58,7 @@ def get_document_by_id(DocID: str = Query(..., description="ID của tài liệu
 def auth(acc: str, pwd: str) -> bool:
     try:
         with connection.cursor() as cursor:
+            print(acc,pwd)
             sql = "SELECT COUNT(*) FROM librarians WHERE Account = %s AND Password = %s"
             cursor.execute(sql, (acc, pwd))
             result = cursor.fetchone()
@@ -271,8 +272,8 @@ def add_document(
 
     try:
         with connection.cursor() as cursor:
-            sql = """INSERT INTO documents (ISBN, Quantity, Price, Publisher, Author, Genre, Title, Publication_year, 
-            Available, `Rank`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+            sql = """INSERT INTO documents (ISBN, Quantity, Price, Publisher, Author, Genre, Title, Link, Publication_year, 
+            Available, `Rank`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s , %s, %s)"""
             cursor.execute(sql, (
                 doc.ISBN,
                 doc.Quantity,
@@ -281,6 +282,7 @@ def add_document(
                 doc.Author,
                 doc.Genre,
                 doc.Title,
+                doc.Link,
                 doc.Publication_year,
                 doc.Available,
                 doc.Rank,
@@ -534,14 +536,18 @@ async def update_document(
         values = []
         for key, value in doc.dict().items():
             if key != "DocID" and value is not None:
-                fields.append(f"{key} = %s")
+                if key == "Rank":
+                    fields.append("`Rank` = %s")   # ✅ xử lý riêng Rank
+                else:
+                    fields.append(f"{key} = %s")
                 values.append(value)
 
         if not fields:
             raise HTTPException(status_code=400, detail="Không có dữ liệu nào để cập nhật")
-        index = ', '.join(fields).find('Rank')
-        update_query = f"UPDATE documents SET {', '.join(fields)[:index] + "`Rank`" + ', '.join(fields)[index+4:]} WHERE DocID = %s"
+
+        update_query = f"UPDATE documents SET {', '.join(fields)} WHERE DocID = %s"
         values.append(doc.DocID)
+
         cursor.execute(update_query, tuple(values))
         connection.commit()
 
@@ -691,7 +697,7 @@ async def update_membercard(
         cursor.execute(update_query, tuple(values))
         connection.commit()
 
-    connection.close()
+    connection.commit()
     return {"message": "Cập nhật thẻ thành viên thành công"}
 
 if __name__ == '__main__':
