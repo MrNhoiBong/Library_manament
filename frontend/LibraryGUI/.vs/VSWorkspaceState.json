@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\assets",
+    "\\src\\pages",
+    "\\src\\pages\\Components",
+    "\\src\\pages\\Home",
+    "\\src\\pages\\Librarian",
+    "\\src\\pages\\Login"
+  ],
+  "SelectedNode": "\\src\\pages\\Components\\Menubar.jsx",
+  "PreviewInSolutionExplorer": false
+}
